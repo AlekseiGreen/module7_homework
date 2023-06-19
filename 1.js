@@ -1,30 +1,22 @@
 console.log('START');
 
 
-let array = [0, 1, 2, 3, 4, 5, 6, null];
-let markEven = 0;
-let markOdd = 0;
-let markNull = 0;
+const obj = {
+    a: 1,
+    b: 2
+};
 
 
-function getParity(arr) {
-    for (let i = 0; i < arr.length; i++) {
-        if(null != arr[i] && 0 != arr[i]) {
-            if(arr[i] % 2 == 0) {
-                ++markEven;
-            } else {
-                ++markOdd;
-            }
-        } else {
-            ++markNull;
+function getKey(obj) {
+    const ownObj = Object.create(obj);
+    ownObj.c = 3;
+    ownObj.d = 4;
+    
+    for(let key in ownObj) {
+        if(ownObj.hasOwnProperty(key)) {
+            console.log(key, '=', ownObj[key]);
         }
     }
-
-    console.log(`Количество четных чисел ${markEven}`);
-    console.log(`Количество нечетных чисел ${markOdd}`);
-    console.log(`Количество нулевых чисел ${markNull}`);
 }
 
-console.log(`--> ${typeof('')}`);
-
-getParity(array);
+getKey(obj);

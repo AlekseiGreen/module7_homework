@@ -1,12 +1,10 @@
 console.log('START');
 
 
-function getSum(x) {
-    return function(y) {
-        return x + y;
-    };
+function NoneProto() {
+    const obj = Object.create(null);;
+    console.log(obj);
+    console.log(Object.getPrototypeOf(obj));
 }
 
-let getFunc = getSum(6);
-
-console.log(getFunc(3));
+console.log(NoneProto());
